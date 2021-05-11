@@ -1,0 +1,11 @@
+com\auth\config\AuthorizationServerConfig.class
+com\auth\controller\UserController.class
+com\auth\BootLauncher.class
+com\auth\entity\AuthRole.class
+com\auth\config\BasicSecurityConfig.class
+com\auth\entity\AuthUser.class
+com\auth\controller\dto\UserDto.class
+com\auth\service\UserDetailsServiceImpl.class
+com\auth\service\AuthUserService.class
+com\auth\repository\UserRoleRepo.class
+com\auth\repository\UserRepository.class

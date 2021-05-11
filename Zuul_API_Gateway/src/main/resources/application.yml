@@ -1,0 +1,50 @@
+server:
+  port: 8762
+spring:
+  application:
+    name: zuul-api-gateway-service
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/user/**
+        - id: order-service
+          uri: lb://ORDER-SERVICE
+          predicates:
+            - Path=/order/**
+        - id: authentication-service
+          uri: lb://authentication-service
+          predicates:
+            - Path=/oauth/**            
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone : http://${eureka.instance.hostname}:8761/eureka/
+#    instance:
+#     preferIpAddress:true
+#     hostname:localhost
+
+  server:
+    eviction-interval-timer-in-ms: 90000
+
+
+
+management:
+ endpoint:
+  routes:
+   enabled:true
+
+endpoints:
+ restart:
+  enabled:true
+ shutdown:
+  enabled:true
+ health:
+  sensitive:true
+
