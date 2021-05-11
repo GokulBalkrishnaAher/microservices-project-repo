@@ -1,0 +1,33 @@
+Step: 1
+
+CREATE TABLE  `springbootrestcrud_db`.`user` (
+  `userId` int(11) NOT NULL AUTO_INCREMENT,
+  `firstName` varchar(255) NOT NULL,
+  `lastName` varchar(255) NOT NULL,
+  PRIMARY KEY (`userId`)
+);
+===========================================================================================
+Step: 2
+
+INSERT INTO user(firstName,lastName)
+VALUES('Gokul','Aher'),('Shweta','Aher'),('Hira','Yadav'),('Narmada','Yadav'),('Koyal','Yadav'),('Kanha','Yadav'),('Jay','Yadav'),('Mehul','Yadav'),('Yash','Yadav');
+===========================================================================================
+Step: 3
+
+CREATE TABLE  `springbootrestcrud_db`.`OrderDetails` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `orderDate` DATE NOT NULL,
+  `userId` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (userId)
+  REFERENCES user(id)
+  ON DELETE CASCADE
+);
+===========================================================================================
+Step: 4
+
+INSERT INTO OrderDetails(orderDate,userId)
+VALUES('2008-7-04',1),('2008-7-05',2),('2008-7-06',1),('2008-7-07',2),('2008-7-08',3),('2008-7-09',4),('2008-7-10',5),('2008-7-11',6),('2008-7-12',7),('2008-7-13',8),('2008-7-14',9);
+VALUES('2008-7-08',3),('2008-7-09',4),('2008-7-10',5),('2008-7-11',6);
+
+===========================================================================================
